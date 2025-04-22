@@ -65,6 +65,8 @@ jobs:
         echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
         echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
         echo 'src-git symwrt https://github.com/aNzTikTok/symwrt.git:main' >> feeds.conf.default
+        echo 'src-git symwrt https://github.com/aNzTikTok/symwrt.git;main' >> feeds.conf.default
+
 
     - name: Free up disk space
       env:
@@ -80,6 +82,7 @@ jobs:
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
+        ./scripts/feeds install -a -f -p symwrt
         ./scripts/feeds install -a -f -p modem
         ./scripts/feeds install -d y -p istore luci-app-store
         ./scripts/feeds install -a -p nas
