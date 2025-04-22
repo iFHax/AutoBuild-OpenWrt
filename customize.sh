@@ -19,10 +19,10 @@ config core 'main'
 EOF
 
 # Change LuCI Web UI title (from LEDE to custom)
-sed -i 's/LEDE/DOTYCAT/g' openwrt/package/lean/default-settings/files/zzz-default-settings
+sed -i 's/LEDE/DOTYCAT/g' openwrt/package/emortal/default-settings/files/99-default-settings
 
 # Remove default root password (empty login)
-sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
+sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/emortal/default-settings/files/99-default-settings
 
 # Set custom SSH banner with Dotycat design
 curl -s https://raw.githubusercontent.com/intannajwa/Auto_Build/master/banner -o openwrt/files/etc/banner
