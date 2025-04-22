@@ -1,14 +1,28 @@
 #!/bin/bash
-#=================================================
-# Description: DIY script
-# Lisence: MIT
-# Author: eSirPlayground
-# Youtube Channel: https://goo.gl/fvkdwm 
-#=================================================
-#1. Modify default IP
-sed -i 's/192.168.1.1/192.168.10.1/g' openwrt/package/base-files/files/bin/config_generate
 
-#2. Clear the login password
+# Create config folders
+mkdir -p openwrt/files/etc/config
+mkdir -p openwrt/files/etc
+
+# Set system hostname, timezone
+cat <<EOF > openwrt/files/etc/config/system
+config system
+	option hostname 'DOTYCAT'
+	option timezone 'MST-8'
+	option zonename 'Asia/Kuala Lumpur'
+EOF
+
+# Set default LuCI language to English
+cat <<EOF > openwrt/files/etc/config/luci
+config core 'main'
+	option lang 'en'
+EOF
+
+# Change LuCI Web UI title (from LEDE to custom)
+sed -i 's/LEDE/DOTYCAT/g' openwrt/package/lean/default-settings/files/zzz-default-settings
+
+# Remove default root password (empty login)
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
 
-#3. Replace with JerryKuKu’s Argon
+# Set custom SSH banner with Dotycat design
+curl -s https://raw.githubusercontent.com/intannajwa/Auto_Build/master/banner -o openwrt/files/etc/banner
