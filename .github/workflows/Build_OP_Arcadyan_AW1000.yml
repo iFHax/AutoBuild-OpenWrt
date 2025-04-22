@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
   
 env:
-  REPO_URL: https://github.com/iFHax/lede
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   CONFIG_FILE: 'Arcadyan_AW1000.config'
-  REPO_BRANCH: master
+  REPO_BRANCH: openwrt-24.10
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -65,8 +65,6 @@ jobs:
         echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
         echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
         echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
-        
-
 
     - name: Free up disk space
       env:
