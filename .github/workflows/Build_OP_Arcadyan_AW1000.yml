@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/iFHax/lede
   CONFIG_FILE: 'Arcadyan_AW1000.config'
   REPO_BRANCH: master
   UPLOAD_BIN_DIR: true
