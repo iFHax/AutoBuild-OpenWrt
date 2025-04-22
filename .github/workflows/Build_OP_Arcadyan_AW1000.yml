@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
   
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/VIKINGYFY/immortalwrt
   CONFIG_FILE: 'Arcadyan_AW1000.config'
-  REPO_BRANCH: openwrt-24.10
+  REPO_BRANCH: owrt
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
