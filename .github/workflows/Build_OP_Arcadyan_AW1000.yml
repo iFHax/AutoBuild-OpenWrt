@@ -58,6 +58,7 @@ jobs:
         src-git istore https://github.com/linkease/istore;main
         src-git nas https://github.com/linkease/nas-packages.git;master
         src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
+        src-git modem_app https://github.com/intannajwa/custom-app.git
         EOF
 
     - name: Free up disk space
